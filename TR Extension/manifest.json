@@ -1,0 +1,31 @@
+{
+    "manifest_version": 2,
+    "name": "Tin Ops Extension",
+    "version": "1.0",
+    "description": "Supplements Tin Ops Functionality",
+    "icons": {
+        "128": "img/icon128.png",
+        "48": "img/icon48.png",
+        "32": "img/icon32.png",
+        "16": "img/icon16.png"
+    },
+    "page_action": {
+        "default_icon": "img/icon16.png",
+        "default_popup": "popup.html",
+        "default_title": "Tin Ops"
+    },
+    "background": {
+        "scripts": ["js/background.js"],
+        "persistent": true
+    },
+    "content_scripts": [{
+        "matches": ["*://*.tinops.com/*"],
+        "js": ["js/content.js"]
+    }],
+    "permissions": [
+        "storage",
+        "tabs",
+        "webRequest",
+        "*://*.tinops.com/"
+    ]
+}
